@@ -6,7 +6,7 @@ const testData = require("../fixtures/testData.json");
 const mainPage = new MainPage;
 //const roomAdminPage = new RoomAdminPage;
 
-describe("Check message sending on the main page", () => {
+describe("Verify message sending on the main page", () => {
 
     let fullname = faker.person.fullName();
     let email = faker.internet.email();

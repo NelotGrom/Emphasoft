@@ -2,7 +2,7 @@
   "name": "emphasoft",
   "version": "1.0.0",
   "description": "test auto task",
-  "main": "index.js",
+  "main": "cypress.config.js",
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
