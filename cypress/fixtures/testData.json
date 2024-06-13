@@ -1,3 +1,4 @@
 {
-    "emailDoubleAt": "email@@mail.com"
+  "emailDoubleAt": "email@@mail.com",
+  "roomTypes": ["Twin", "Single", "Family", "Suite", "Double"]
 }
