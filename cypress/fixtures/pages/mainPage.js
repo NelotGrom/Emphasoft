@@ -13,6 +13,7 @@ export class MainPage {
 
   elements = {
     lastCreatedRoom: () => cy.get('.hotel-room-info:last'),
+    errorGrowMessage: () => cy.get('.alert.alert-danger'),
   };
 
   sendMessage(fullname, email, phone, subject, message) {

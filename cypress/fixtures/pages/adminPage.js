@@ -21,6 +21,7 @@ export class AdminPage {
 
   elements = {
     lastRoomInList: () => cy.get('[data-testid="roomlisting"]:last'),
+    errorGrowMessage: () => cy.get('.alert.alert-danger'),
   };
 
   checkboxOptionSelect(checkbox) {

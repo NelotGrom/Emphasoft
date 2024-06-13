@@ -115,4 +115,19 @@ describe("Verify room adding with the admin page", () => {
     mainPage.elements.lastCreatedRoom().contains("Safe");
     mainPage.elements.lastCreatedRoom().contains("Views");
   });
+
+  it('Verify room adding with negative price', () => {
+    adminPage.getAdminPageAccessAPI(creds.adminLogin, creds.adminPassword);
+    cy.intercept("POST", "/room").as("createRoom");
+    adminPage.fillInput("roomNameField", faker.number.int({ min: 1, max: 999 }+'Test'));
+    adminPage.fillInput("roomPriceField", -roomPrice);
+    adminPage.buttons.createRoom().should("have.text", "Create").click();
+    cy.wait("@createRoom").then((request) => {
+      expect(request.response.statusCode).to.eq(400);
+    })
+    adminPage.elements.errorGrowMessage().should('be.visible');
+    adminPage.elements.errorGrowMessage().contains('должно быть не меньше 1');
+    adminPage.elements.lastRoomInList().should("have.not.text", -roomPrice);  
+     
+  });
 });
